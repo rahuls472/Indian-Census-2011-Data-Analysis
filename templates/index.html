@@ -1,0 +1,59 @@
+{% extends 'Model.html' %}
+
+
+
+{% block content %}
+
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <!-- <th scope="col">Sr.No</th> -->
+            <th scope="col">State Name</th>
+            <th scope="col">Male</th>
+            <th scope="col">Female</th>
+            <th scope="col">Literate</th>
+            <th scope="col">Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in overalldata %}
+          <tr>
+            <!-- <th scope="row">1</th> -->
+            <td>{{ data['State name'] }}</td>
+            <td>{{ data['Male'] }}</td>
+            <td>{{ data['Female'] }}</td>
+            <td>{{ data['Literate'] }}</td>
+            <td>{{ data['Population'] }}</td>
+            <!-- <td>@mdo</td> -->
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="chart1">
+      {{ chart | safe }}
+      </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="chart2 my-5 w-100">
+
+      {{ chart2 | safe }}
+
+    </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="chart2 my-5 w-100">
+  
+        {{ Graph2 | safe }}
+  
+      </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

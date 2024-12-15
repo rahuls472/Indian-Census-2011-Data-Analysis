@@ -1,0 +1,41 @@
+{% extends 'Model.html' %}
+
+{% block content %}
+<div class="container-fluid my-5">
+    <div class="row">
+        <!-- Table displaying the data -->
+        <div class="col-lg-6 offset-lg-3">
+            <h3>Population Data for {{ request.args.get('state_name') }}</h3>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">District Name</th>
+                    <th scope="col">Male Literate</th>
+                    <th scope="col">Female Literate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in data %}
+                  <tr>
+                    <td>{{ data['District name'] }}</td>
+                    <td>{{ data['Male_Literate'] }}</td>
+                    <td>{{ data['Female_Literate'] }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Plotly Graph -->
+        <div class="chart2 col-lg-12">
+            <!-- Embed the Plotly graph HTML here -->
+            {{ Graph | safe }}
+        </div>
+
+        <div class="chart2 col-lg-12 my-5">
+            <!-- Embed the Plotly graph HTML here -->
+            {{ Graph2 | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

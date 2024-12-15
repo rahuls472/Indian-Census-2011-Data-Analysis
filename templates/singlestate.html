@@ -1,0 +1,35 @@
+{% extends 'Model.html' %}
+
+{% block content %}
+<div class="container-fluid my-5">
+    <div class="row">
+        <!-- Table displaying the data -->
+        <div class="col-lg-6">
+            <h3>Population Data for {{ request.args.get('state_name') }}</h3>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">District Name</th>
+                    <th scope="col">Population</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in single %}
+                  <tr>
+                    <td>{{ data['District name'] }}</td>
+                    <td>{{ data['Population'] }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Plotly Graph -->
+        <div class="col-lg-6 my-5">
+          <div class="chart1">
+          {{ chart | safe }}
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
