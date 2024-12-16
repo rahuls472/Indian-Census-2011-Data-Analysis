@@ -5,7 +5,7 @@ import plotly.io as pio
 from plotly.subplots import make_subplots
 
 
-NewDf = pd.read_csv('/home/ghost/Python DS/Indian census data/Modified data.csv')
+NewDf = pd.read_csv('Modified data.csv')
 NewDf['District name'].drop_duplicates(inplace=True)
 
 
