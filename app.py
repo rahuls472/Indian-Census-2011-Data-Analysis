@@ -51,7 +51,7 @@ def LiteracyRate():
     SexWiseLiteracy = data.maleFemaleLiteracyRate(statename)
     return render_template('Literacy.html',data = LiteracyRateDate,Graph = LiteracyRateGraph,Allstates=states,Graph2 = SexWiseLiteracy)
 
-app.run(debug=True)
+
 
 
 
